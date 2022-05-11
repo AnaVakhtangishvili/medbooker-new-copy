@@ -1,0 +1,11 @@
+<nb-card *ngIf="patient" class="patients-card">
+  <nb-card-body>
+    <nb-user size="large"
+             name='{{ patient.firstName }} {{ patient.lastName }}'
+             color="#FEFEFE">
+    </nb-user>
+    <button nbButton class="btn btn-bookConsultation btn-book " (click)="appointmentButtonClick(patient.entityNo)">
+      <span>create appointment</span>
+    </button>
+  </nb-card-body>
+</nb-card>

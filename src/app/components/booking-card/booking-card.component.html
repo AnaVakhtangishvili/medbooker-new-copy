@@ -1,0 +1,10 @@
+<nb-card class="booking-card" *ngIf="booking">
+  <nb-card-header>{{booking.attendees | attendeesNames: attendee.patient}}</nb-card-header>
+  <nb-card-body class="booking-info">
+    <div class="date">{{booking.startTime | date:'medium'}}</div>
+    <div class="card-buttons">
+      <button nbButton class="btn btn-card" (click)="acceptBooking(booking.id)">accept</button>
+      <button nbButton class="btn btn-card"(click)="rejectBooking(booking.id)">reject</button>
+    </div>
+  </nb-card-body>
+</nb-card>

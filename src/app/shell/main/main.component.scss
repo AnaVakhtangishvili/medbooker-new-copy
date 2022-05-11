@@ -1,0 +1,15 @@
+@import '/src/styles/styles';
+
+nb-layout-header, nb-sidebar  {
+  background-color: #e1e3ff;
+  box-shadow: none;
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+nb-sidebar.expanded{
+  width: 17rem;
+}
+
+nb-layout-column {
+  background: $white;
+}

@@ -1,0 +1,9 @@
+@import '/src/styles/abstracts/abstracts';
+
+agm-map {
+  @include media-tablet {
+    height: 50vh
+  };
+
+  height: calc(100vh - 2rem);
+}

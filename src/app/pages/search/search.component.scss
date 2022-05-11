@@ -1,0 +1,29 @@
+@import "/src/styles/styles.scss";
+
+
+.map-and-search {
+  @include flex(space-between, flex-start);
+  @include media-tablet {
+    @include flex(space-between, flex-start, column-reverse);
+  }
+  @include media-mobile {
+    padding: 1rem;
+  }
+  gap: 2rem;
+  padding: 2rem;
+
+  .map {
+    @include media-tablet {
+     width: 100%;
+    }
+    flex: 8;
+    background-color: rgb(232, 232, 232);
+  }
+
+  .doctors {
+    @include media-tablet {
+     width: 100%;
+    }
+    flex: 5;
+  }
+}

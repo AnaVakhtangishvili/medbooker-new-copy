@@ -1,0 +1,22 @@
+.nb-theme-default .cdk-overlay-container{
+  overflow-y: scroll;
+  .cdk-overlay-connected-position-bounding-box {
+    .cdk-overlay-pane {
+      top: 15rem !important;
+    }
+  }
+}
+
+.nb-theme-default nb-calendar-picker .day-cell:not(.disabled):not(.empty).today.selected, .nb-theme-default nb-calendar-picker .day-cell.selected, .nb-theme-default .nb-timepicker-container .list-item.selected, .nb-theme-default [nbButton].appearance-filled.status-primary, .nb-theme-default nb-calendar-picker .day-cell:not(.disabled):not(.empty).selected .cell-content, .nb-theme-default nb-calendar-picker .day-cell:not(.disabled):not(.empty):active .cell-content {
+  background-color: $pastel-violet !important;
+  border: none !important;
+  border-radius: 0.25rem;
+}
+
+.nb-theme-default nb-calendar-picker .day-cell:not(.disabled):not(.empty).today .cell-content {
+  border: 1px solid $pastel-violet !important;
+}
+
+.nb-theme-default [nbButton].appearance-ghost.status-primary {
+  color: $pastel-violet !important;
+}

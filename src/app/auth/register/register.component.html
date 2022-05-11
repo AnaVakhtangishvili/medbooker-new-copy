@@ -1,0 +1,143 @@
+<nb-layout>
+  <nb-layout-column class="forms">
+    <nb-form-field *ngIf="registrationForm">
+      <h3>create account</h3>
+      <form
+        class="register-form"
+        [formGroup]="registrationForm"
+        (ngSubmit)="onRegistration()"
+      >
+        <span class="instruction">* All fields are required</span>
+
+        <div class="input-groups">
+          <div class="input-wrapper">
+            <input
+              formControlName="firstName"
+              class="input"
+              type="text"
+              nbInput
+              shape="semi-round"
+              placeholder="first name"
+              fieldSize="giant"
+              appFormErrorMessages
+            />
+          </div>
+          <div class="input-wrapper">
+            <input
+              formControlName="lastName"
+              class="input"
+              type="text"
+              nbInput
+              shape="semi-round"
+              placeholder="last name"
+              fieldSize="giant"
+              appFormErrorMessages
+            />
+          </div>
+        </div>
+        <div class="input-wrapper">
+          <input
+            formControlName="email"
+            class="input"
+            type="text"
+            nbInput
+            fullWidth
+            shape="semi-round"
+            placeholder="email"
+            fieldSize="giant"
+            appFormErrorMessages
+          />
+        </div>
+        <div class="input-groups" formGroupName="passwordGroup">
+          <div class="input-wrapper">
+            <div class="password">
+              <input
+                formControlName="password"
+                class="input"
+                [type]="getInputType()"
+                nbInput
+                shape="semi-round"
+                fieldSize="giant"
+                placeholder="password"
+                appFormErrorMessages
+              />
+              <nb-icon
+                class="password-icon"
+                (click)="toggleShowPassword()"
+                [icon]="showPassword ? 'eye-outline' : 'eye-off-2-outline'"
+                pack="eva"
+                [attr.aria-label]="
+                  showPassword ? 'hide password' : 'show password'
+                "
+              >
+              </nb-icon>
+            </div>
+          </div>
+          <div class="input-wrapper">
+            <div class="password">
+              <input
+                formControlName="confirmPassword"
+                class="input input-password"
+                [type]="getInputTypeConfirm()"
+                nbInput
+                shape="semi-round"
+                fieldSize="giant"
+                placeholder="confirm password"
+                appFormErrorMessages
+              />
+              <nb-icon
+                class="password-icon"
+                (click)="toggleShowConfirmedPassword()"
+                [icon]="
+                  showConfirmedPassword ? 'eye-outline' : 'eye-off-2-outline'
+                "
+                pack="eva"
+                [attr.aria-label]="
+                  showConfirmedPassword ? 'hide password' : 'show password'
+                "
+              >
+              </nb-icon>
+            </div>
+          </div>
+        </div>
+        <span
+          class="errorMessage passwordsMismatch"
+          *ngIf="registrationForm.get('passwordGroup')?.errors?.['match']"
+          >passwords don't match</span
+        >
+        <div class="input-wrapper">
+          <nb-select
+            formControlName="role"
+            placeholder="select role"
+            shape="semi-round"
+            size="giant"
+            class="input"
+            fullWidth
+            appFormErrorMessages
+          >
+            <nb-option value="{{ rolesEntityNo.doctor }}">doctor</nb-option>
+            <nb-option value="{{ rolesEntityNo.patient }}">patient</nb-option>
+          </nb-select>
+        </div>
+        <span
+          class="errorMessage passwordsMismatch"
+          *ngIf="firebaseError.length"
+        >
+          {{ firebaseError }}
+        </span>
+        <button
+          nbButton
+          class="btn btn-register"
+          [disabled]="!registrationForm.valid"
+          [ngClass]="{ disabled: !registrationForm.valid }"
+        >
+          <span>register</span>
+        </button>
+      </form>
+    </nb-form-field>
+    <div class="suggestioin">
+      <span class="question">Already have an account?</span>
+      <a routerLink="/login" class="form-link">Log in</a>
+    </div>
+  </nb-layout-column>
+</nb-layout>

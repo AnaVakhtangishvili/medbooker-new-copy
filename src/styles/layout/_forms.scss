@@ -1,0 +1,230 @@
+nb-layout-column {
+  @include media-tablet {
+    width: 100%;
+  }
+
+  &.forms {
+    @include flex(center, center, column);
+    gap: 2rem;
+  }
+}
+
+.nb-form-field-limited-width.nb-form-field-size-giant {
+  @include media-tablet {
+    max-width: 100vw;
+    width: 100vw;
+  }
+  width: auto;
+  max-width: $form-width;
+}
+
+h3 {
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 400;
+  color: $pastel-violet;
+  margin-bottom: 2rem;
+}
+
+.instruction {
+  display: inline-block;
+  color: $accent;
+  margin: 1rem 0;
+}
+
+form {
+  @include media-tablet {
+    width: 100%;
+  }
+  @include media-mobile {
+    padding: 0 1.5rem;
+  }
+  width: $form-width;
+  padding: 0 3rem;
+
+  .input-groups {
+    @include media-tablet {
+      grid-template-columns: repeat(1, 100%);
+    }
+    display: grid;
+    grid-template-columns: repeat(2, calc(50% - 0.5rem));
+    gap: 1rem;
+
+    :first-child {
+      @include media-tablet {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .input-wrapper {
+    margin-bottom: 1rem;
+    border-radius: $nebular-semi-round;
+  }
+
+  .password {
+    @include flex(space-between, center);
+    background: $white;
+    border-radius: $nebular-semi-round;
+    padding-right: 10px;
+
+    .password-icon {
+      cursor: pointer;
+    }
+  }
+}
+
+[nbInput].input {
+  background: $white;
+  border: none;
+  color: $secondary;
+  font-family: "Kumbh Sans", sans-serif;
+
+  &::placeholder {
+    text-transform: capitalize;
+  }
+
+  &:focus {
+    background: $white;
+  }
+  &:hover {
+    background: $white;
+  }
+
+  &.invalid-input {
+    border: 1px solid $accent;
+  }
+}
+
+[nbInput].input-password {
+  margin-bottom: 0;
+}
+
+[nbInput].size-giant:not(.input-full-width) {
+  max-width: 100%;
+}
+
+.nb-theme-default
+  nb-select.appearance-outline.status-basic.input
+  .select-button {
+  background: $white;
+  text-transform: capitalize;
+  border: none;
+
+  &:hover {
+    background: $white;
+  }
+}
+
+nb-option {
+  font-family: "Kumbh Sans", sans-serif;
+  text-transform: capitalize;
+  color: $secondary;
+
+  &:hover {
+    @include select-styles($accent);
+  }
+
+  &:focus {
+    @include select-styles($accent-pale);
+
+    &.selected {
+      @include select-styles($accent-pale);
+    }
+  }
+
+  &.selected {
+    @include select-styles($accent-pale);
+  }
+}
+
+nb-option-list .option-list {
+  border-radius: $nebular-semi-round;
+  border: none;
+  outline: none;
+}
+
+.nb-theme-default nb-option-list {
+  background-color: $white;
+  border-color: transparent;
+  border: none;
+  border-radius: $nebular-semi-round;
+}
+
+.errorMessage {
+  display: inline-block;
+  color: $accent;
+  margin-top: 1rem;
+
+  &.passwordsMismatch {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    display: block;
+    text-align: center;
+  }
+}
+
+.invalid-input {
+  border: 1px solid $accent;
+}
+
+.suggestioin {
+  @include flex(center, center);
+  margin-bottom: 2rem;
+
+  .form-link {
+    color: rgb(146, 146, 231);
+    padding: 15px;
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover {
+      color: $accent-intense;
+      transition: 0.3s;
+    }
+  }
+}
+
+// search doctors
+
+.search-docorts {
+  width: 100%;
+
+  .password {
+    margin-bottom: 1rem;
+    border: 1px solid $inactive;
+  }
+}
+
+.messageForEmpty {
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  color: $accent;
+  margin-top: 2rem;
+}
+
+.search-docorts {
+  @include media-tablet {
+    padding: 0;
+  }
+  @include media-mobile {
+    padding: 0;
+  }
+}
+
+// pick date
+
+.nb-theme-default [nbInput].size-medium:not(.input-full-width) {
+  max-width: 20rem;
+}
+
+.datePicker-form {
+  @include media-tablet {
+    width: 100%;
+  }
+
+  width: 50%;
+  padding: 0;
+}

@@ -1,0 +1,20 @@
+<nb-card
+  class="upcoming-consultation-card card-In-DatePicker"
+  [ngClass]="{ selected_booking: chosenBooking?.id == booking.id }"
+  *ngIf="booking"
+  (click)="clickOnCard(booking.id)"
+>
+  <nb-card-body class="date">
+    {{ booking.startTime | date: "medium" }}
+  </nb-card-body>
+  <nb-card-body class="user">
+    <nb-user
+      class="user-In-DatePicker"
+      size="large"
+      name="{{ name }}"
+      title="{{ practiceName }}"
+      color="#FEFEFE"
+    >
+    </nb-user>
+  </nb-card-body>
+</nb-card>

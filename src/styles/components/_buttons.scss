@@ -1,0 +1,210 @@
+[nbButton].appearance-filled.size-medium {
+  background-color: transparent;
+  border: none;
+  color: $inactive;
+  text-align: left;
+  padding: 0;
+  font-family: "Kumbh Sans", sans-serif;
+
+  &:hover,
+  :active {
+    background: transparent;
+    transition: 0s;
+  }
+
+  &:focus {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+[nbButton].appearance-filled.size-medium.btn-logout {
+  @include media-tablet {
+    display: none;
+  }
+  text-transform: capitalize;
+  padding: 1rem;
+
+  &:hover {
+    color: $secondary;
+    transition: 0.3s;
+  }
+}
+
+[nbButton].appearance-filled.size-medium.btn-logout-icon {
+  @include media-tablet {
+    display: block;
+  }
+  display: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+[nbButton].appearance-filled.size-medium.btn-auth {
+  height: 2.5rem;
+  color: $accent;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  margin-top: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background: linear-gradient(
+      90deg,
+      rgba(88, 60, 240, 1) 0%,
+      rgba(157, 80, 255, 1) 100%
+    );
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.3s;
+  }
+}
+
+[nbButton].appearance-filled.size-medium.btn-sidebar {
+  @include flex(flex-start, center);
+  width: 100%;
+}
+
+[nbButton].appearance-filled.size-medium.btn-register {
+  @include media-tablet {
+    max-width: $input-max-width;
+  }
+  width: 100%;
+  color: $white;
+  background: $accent;
+  border-radius: $nebular-semi-round;
+  padding: 1.3rem 0;
+  margin-top: 1rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: $accent-intense;
+    border-radius: $nebular-semi-round;
+    transition: all 0.3s;
+  }
+
+  &.disabled {
+    background-color: $accent-pale;
+
+    &:hover {
+      cursor: default;
+    }
+
+    &:hover::after {
+      width: 0;
+    }
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+
+  span {
+    position: relative;
+    z-index: 10;
+  }
+}
+
+[nbButton].appearance-filled.size-medium.btn-card {
+  color: white;
+  background-color: $accent;
+  padding: 1rem 1.3rem;
+
+  @include media-mobile {
+    font-size: 0.8rem;
+    padding: 0.6rem 0.7rem;
+  }
+}
+
+[nbButton].appearance-filled.size-medium.btn-book {
+  width: 100%;
+  background-color: $inactive;
+  color: $white;
+  padding: 0.8rem 1rem;
+  border-radius: $nebular-semi-round;
+  position: relative;
+  margin-top: 1rem;
+
+  &::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: $pastel-violet;
+    border-radius: $nebular-semi-round;
+    transition: all 0.3s;
+  }
+
+  &:hover::after {
+    height: 100%;
+  }
+
+  span {
+    font-size: 1rem;
+    text-transform: capitalize;
+    position: relative;
+    z-index: 10;
+  }
+
+  &.disabled {
+    background-color: $inactive-pale;
+
+    &:hover {
+      cursor: default;
+    }
+
+    &:hover::after {
+      height: 0;
+    }
+  }
+}
+
+[nbButton].appearance-filled.size-medium.btn-bookConsultation {
+  margin-top: 1rem;
+  color: $accent;
+  background-color: $white;
+  border: 1px solid $white;
+
+  &::after {
+    background: $doctor-card-btn-gradient;
+  }
+
+  &:hover {
+    color: $white;
+    transition: all 0.3s;
+  }
+
+  &:hover::after {
+    height: 100%;
+  }
+}
+
+[nbButton].appearance-filled.size-medium.btn-cancel {
+  background: $white;
+  border: 1px solid $accent;
+  transition: all 0.3s;
+
+  &::after {
+    background: $accent;
+  }
+
+  &:hover {
+    border: none;
+  }
+
+  &:hover::after {
+    height: 100%;
+  }
+}

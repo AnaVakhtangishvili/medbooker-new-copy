@@ -1,0 +1,20 @@
+<nb-layout>
+  <nb-layout-column>
+    <h3>consultation requests</h3>
+
+    <ng-container *ngIf="bookings$ | async as bookings">
+      <ng-container *ngIf="bookings.length; else messageForEmptyBlock">
+        <div class="card-container">
+          <app-booking-card
+          *ngFor="let booking of bookings"
+          [booking]="booking"
+          (onAcceptBooking)="acceptBookingHandler($event)"
+          (onRejectBooking)="rejectBookingHandler($event)"
+        ></app-booking-card>
+        </div>
+      </ng-container>
+    </ng-container>
+  </nb-layout-column>
+</nb-layout>
+
+<ng-template #messageForEmptyBlock><p class="messageForEmpty">You have no consultation requests</p></ng-template>

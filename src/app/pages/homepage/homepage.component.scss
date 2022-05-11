@@ -1,0 +1,19 @@
+@import '/src/styles/styles.scss';
+
+:host {
+  @include flex(center, center);
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(153deg, rgba(185,175,237,1) 0%, rgba(199,226,239,1) 63%);
+  
+  .content {
+    @include flex(center, center, column);
+
+    h1 {
+      font-size: 3rem;
+      background: linear-gradient(96deg, rgba(10,3,60,1) 0%, rgba(93,82,169,1) 55%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}

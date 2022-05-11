@@ -1,0 +1,36 @@
+<nb-layout>
+  <nb-layout-column class="first-column">
+    <h3>past consultations</h3>
+    <ng-container *ngIf="pastBookings$ | async as bookings">
+      <ng-container *ngIf="bookings.length; else messageForEmptyBlock">
+        <app-upcoming-consultations-card
+          *ngFor="let booking of bookings"
+          [booking]="booking"
+          [chosenBooking]="chosenBooking"
+          [name]="booking?.attendees | attendeesNames: attendee"
+          [practiceName]="booking.practiceName"
+          (onCardClick)="onCardClickHandler($event)"
+        ></app-upcoming-consultations-card>
+      </ng-container>
+    </ng-container>
+  </nb-layout-column>
+
+  <nb-layout-column class="second-column">
+    <h3>consultation details</h3>
+    <ng-container *ngIf="chosenBooking; else messageForEmptyCancelBlock">
+      <app-cancel-booking-card
+        [chosenBooking]="chosenBooking"
+        [name]="chosenBooking.attendees | attendeesNames: attendee"
+        [practiceName]="chosenBooking.practiceName"
+      ></app-cancel-booking-card>
+    </ng-container>
+  </nb-layout-column>
+</nb-layout>
+
+<ng-template #messageForEmptyBlock>
+  <p class="messageForEmpty">You have no past consultations</p>
+</ng-template>
+
+<ng-template #messageForEmptyCancelBlock>
+  <p class="messageForEmpty">Click on the booking to see detailed information</p>
+</ng-template>

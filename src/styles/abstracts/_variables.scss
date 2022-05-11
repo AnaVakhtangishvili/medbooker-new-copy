@@ -1,0 +1,26 @@
+$primary: #e1e3ff;
+$secondary: #0a033c;
+$inactive: hsl(227, 18%, 50%);
+$inactive-pale: hsl(231, 19%, 79%);
+$accent: #FE6A68;
+$accent-pale: #fc9290;
+$accent-intense: #ff4946;
+$pastel-violet: rgb(146, 146, 231);
+$white: #FEFEFE;
+$nebular-lght-gray: #f7f9fc;
+$doctor-card-btn-gradient: linear-gradient(96deg, rgba(255,105,103,1) 0%, rgba(251,158,163,1) 100%);
+
+$initialMargin: 2rem;
+$form-width: 35rem;
+$input-max-width: 100%;
+$nebular-semi-round: 0.75rem;
+
+$upcoming-consultations-tablet: 1000px;
+$tablet: 768px;
+$mobile: 500px;
+
+$breakpoints: (
+  tablet: $tablet,
+  mobile: $mobile,
+  upcoming-consultations-tablet :$upcoming-consultations-tablet
+)

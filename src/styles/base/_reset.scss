@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $accent; 
+  border-radius: 10px;
+}
+
+.layout-container .content .columns{
+  @include media-upcoming-consultations-tablet {
+    display: flex;
+    flex-direction: column !important;
+  }
+}

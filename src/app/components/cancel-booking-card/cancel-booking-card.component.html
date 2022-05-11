@@ -1,0 +1,28 @@
+<nb-card class="cancel-booking-card" *ngIf="chosenBooking">
+  <nb-card-body class="date">
+    {{ chosenBooking.startTime | date: "medium" }}
+  </nb-card-body>
+  <nb-card-body class="info">
+    <h6>{{consultationState}}</h6>
+    <p class="consultation-status">{{ chosenBooking.status }}</p>
+  </nb-card-body>
+
+  <nb-card-body class="docotor-info">
+    <nb-user
+      class="user-In-DatePicker"
+      size="large"
+      name="{{ name }}"
+      title="{{ practiceName }}"
+      color="#FEFEFE"
+    >
+    </nb-user>
+    <button
+      nbButton
+      class="btn btn-bookConsultation btn-book btn-cancel"
+      (click)="cancelBooking(chosenBooking.id)"
+      *ngIf="showCancelButton"
+    >
+      <span>cancel consultation</span>
+    </button>
+  </nb-card-body>
+</nb-card>

@@ -1,0 +1,16 @@
+// @use 'vendors/nebular//themes' as *;
+
+// @use '@nebular/theme/styles/globals' as *;
+
+// @include nb-install() {
+//   @include nb-theme-global();
+// };
+
+@import 'abstracts/abstracts';
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/nb-layout-reset';
+@import 'components/buttons';
+@import 'layout/forms';
+@import 'layout/cards';
+@import 'layout/calendar';

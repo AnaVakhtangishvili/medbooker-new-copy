@@ -1,0 +1,111 @@
+<nav class="sidebar">
+  <a href="#" (click)="toggle()" class="sidebar__menu-expand-icon"
+    ><nb-icon icon="ellipsis" pack="fas"></nb-icon>
+  </a>
+  <ul class="sidebar__list">
+    <li class="sidebar__list--item" title="{{ sidebarButtonsNames.dashboard }}">
+      <button nbButton class="btn btn-sidebar">
+        <a
+          [routerLink]="['dashboard']"
+          routerLinkActive="active"
+          class="sidebar__list--item-link"
+          ><nb-icon
+            icon="chalkboard"
+            pack="fas"
+            class="sidebar__list--item-icon"
+          ></nb-icon
+          >{{ sidebarButtonsNames.dashboard }}
+        </a>
+      </button>
+    </li>
+    <li class="sidebar__list--item" title="{{ sidebarButtonsNames.doctors }}" *ngIf="user.entityNo == role.patient">
+      <button nbButton class="btn btn-sidebar">
+        <a
+          [routerLink]="['search']"
+          routerLinkActive="active"
+          class="sidebar__list--item-link"
+          ><nb-icon
+            icon="user-doctor"
+            pack="fas"
+            class="sidebar__list--item-icon"
+          ></nb-icon>
+          {{ sidebarButtonsNames.doctors }}
+        </a>
+      </button>
+    </li>
+    <li class="sidebar__list--item" title="{{ sidebarButtonsNames.consultationRequests }}" *ngIf="user.entityNo == role.doctor">
+      <button nbButton class="btn btn-sidebar">
+        <a
+          [routerLink]="['consultation-requests']"
+          routerLinkActive="active"
+          class="sidebar__list--item-link"
+          ><nb-icon
+            icon="user-doctor"
+            pack="fas"
+            class="sidebar__list--item-icon"
+          ></nb-icon>
+          {{ sidebarButtonsNames.consultationRequests }}
+        </a>
+      </button>
+    </li>
+    <li
+      class="sidebar__list--item"
+      title="{{ sidebarButtonsNames.upcomingConsultations }}"
+    >
+      <button nbButton class="btn btn-sidebar">
+        <a
+          [routerLink]="['upcoming-consultations']"
+          routerLinkActive="active"
+          class="sidebar__list--item-link"
+        >
+          <nb-icon
+            icon="calendar-day"
+            pack="fas"
+            class="sidebar__list--item-icon"
+          ></nb-icon>
+          {{ sidebarButtonsNames.upcomingConsultations }}
+        </a>
+      </button>
+    </li>
+    <li
+      class="sidebar__list--item"
+      title="{{ sidebarButtonsNames.healthRecords }}"
+      *ngIf="user.entityNo == role.patient"
+    >
+      <button nbButton class="btn btn-sidebar">
+        <a
+          [routerLink]="['health-records']"
+          routerLinkActive="active"
+          class="sidebar__list--item-link"
+        >
+          <nb-icon
+            icon="heart-pulse"
+            pack="fas"
+            class="sidebar__list--item-icon"
+          ></nb-icon>
+          {{ sidebarButtonsNames.healthRecords }}
+        </a>
+      </button>
+    </li>
+    <li
+    class="sidebar__list--item"
+    title="{{ sidebarButtonsNames.patients }}"
+    *ngIf="user.entityNo == role.doctor"
+  >
+    <button nbButton class="btn btn-sidebar">
+      <a
+        [routerLink]="['patients']"
+        routerLinkActive="active"
+        class="sidebar__list--item-link"
+      >
+        <nb-icon
+          icon="heart-pulse"
+          pack="fas"
+          class="sidebar__list--item-icon"
+        ></nb-icon>
+        {{ sidebarButtonsNames.patients }}
+      </a>
+    </button>
+  </li>
+  </ul>
+</nav>

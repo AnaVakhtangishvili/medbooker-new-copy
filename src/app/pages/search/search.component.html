@@ -1,0 +1,56 @@
+<div class="map-and-search">
+  <div class="map">
+    <app-google-map *ngIf="length" [mapMarkers]="length"></app-google-map>
+  </div>
+  <div class="doctors">
+    <nb-form-field *ngIf="doctorsForm">
+      <h3>search doctors</h3>
+      <form class="search-docorts" [formGroup]="doctorsForm">
+        <div class="password">
+          <input
+            class="input input-password"
+            nbInput
+            fullWidth
+            shape="semi-round"
+            placeholder="doctor's name"
+            fieldSize="medium"
+            formControlName="doctorsName"
+            appFormErrorMessages
+          />
+          <nb-icon
+            class="password-icon"
+            icon="search-outline"
+            pack="eva"
+          ></nb-icon>
+        </div>
+        <div class="password">
+          <input
+            class="input input-password"
+            nbInput
+            fullWidth
+            shape="semi-round"
+            placeholder="doctor's lastname"
+            fieldSize="medium"
+            formControlName="doctorsLastname"
+            appFormErrorMessages
+          />
+          <nb-icon
+            class="password-icon"
+            icon="search-outline"
+            pack="eva"
+          ></nb-icon>
+        </div>
+      </form>
+    </nb-form-field>
+
+    <ng-container *ngIf="doctors$ | async as doctors; else messageForEmptyBlock">
+      <app-doctor-card
+        *ngFor="let doctor of doctors"
+        [doctor]="doctor"
+        (toNavigateToBooking)="navigationHandler($event)"
+      ></app-doctor-card>
+    </ng-container>
+  </div>
+</div>
+
+<ng-template #messageForEmptyBlock><p class="messageForEmpty">Doctors not found</p></ng-template>

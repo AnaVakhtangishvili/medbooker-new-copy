@@ -1,0 +1,9 @@
+@import '/src/styles/styles.scss';
+
+:host {
+  @include flex(center, center)
+}
+
+h3 {
+  margin-top: 3rem;
+}

@@ -1,0 +1,15 @@
+<div class="header">
+  <a routerLink="dashboard" class="header__logo">MedBooker</a>
+  <div class="header__user">
+    <p class="header__user--username">{{ user?.firstName }} {{ user?.lastName }}</p>
+    <div class="logout" (click)="onLogout()">
+      <button nbButton class="btn btn-logout">
+        log out
+      </button>
+      <button nbButton class="btn btn-logout-icon" title="log out">
+        <nb-icon icon="right-from-bracket" pack="fas"></nb-icon>
+      </button>
+    </div>
+  </div>
+</div>
+

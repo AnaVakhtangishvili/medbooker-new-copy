@@ -1,0 +1,176 @@
+nb-card.doctors-card {
+  margin-top: 2rem;
+  background: $doctor-card-btn-gradient;
+  border-radius: $nebular-semi-round;
+}
+
+nb-card.patients-card {
+  margin-top: 2rem;
+  background: $inactive;
+  border-radius: $nebular-semi-round;
+}
+
+.nb-theme-default nb-user.size-large {
+  &.user-In-DatePicker {
+    @include media-mobile {
+      padding: 0;
+    }
+    padding: 1rem;
+    .user-name {
+      color: $pastel-violet;
+      border-bottom: 1px solid black;
+    }
+  }
+
+  .initials {
+    @include media-mobile {
+      margin-right: 0.3rem;
+    }
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: $pastel-violet;
+    margin-right: 1rem;
+  }
+
+  .user-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    color: $white;
+    border-bottom: 1px solid $white;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .user-title {
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: black;
+  }
+}
+
+nb-card.booking-card {
+  border-radius: $nebular-semi-round;
+
+  .booking-info {
+    .date {
+      padding: 1rem 0;
+      border-bottom: 2px solid $inactive;
+    }
+
+    .card-buttons {
+      :first-child {
+        margin-right: 1rem;
+        background-color: $pastel-violet;
+      }
+      margin-top: 1rem;
+      text-align: right;
+    }
+  }
+
+  nb-card-header {
+    background-color: $inactive;
+    color: #fff;
+    text-transform: capitalize;
+    border-radius: $nebular-semi-round $nebular-semi-round 0 0;
+  }
+}
+
+nb-card.card-In-DatePicker {
+  @include media-tablet {
+    width: 100%;
+  }
+
+  width: 50%;
+  margin-top: 2rem;
+  background: $white;
+  border-radius: $nebular-semi-round;
+  background-color: $nebular-lght-gray;
+}
+
+nb-card.upcoming-consultation-card {
+  @include media-mobile {
+    @include flex(center, center, column);
+    padding: 1rem;
+  }
+  width: 100%;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  justify-items: start;
+  padding: 1.5rem;
+  border-radius: $nebular-semi-round;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid $accent;
+    transition: 0.3s;
+  }
+
+  nb-card-body.date {
+    @include media-mobile {
+      border-right: none;
+      border-bottom: 1px solid $accent;
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+    }
+    padding: 1rem 1rem 0 0;
+    border-right: 1px solid $accent;
+  }
+
+  nb-card-body.user {
+    padding: 0 0 0 1rem;
+  }
+}
+
+nb-card.cancel-booking-card {
+  @include media-mobile {
+    padding: 1rem;
+  }
+  width: 100%;
+  background: $white;
+  display: grid;
+  grid-template-columns: 35% 65%;
+  padding: 1.5rem;
+  border-radius: $nebular-semi-round;
+  cursor: pointer;
+  cursor: auto;
+
+  :nth-child(3) {
+    @include media-mobile {
+      margin-top: 1rem;
+      padding: 0;
+    }
+    grid-column: 1/3;
+    width: 100%;
+  }
+
+  h6 {
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+  }
+
+  .consultation-status {
+    color: $accent;
+    text-transform: capitalize;
+  }
+
+  nb-card-body.date {
+    @include media-mobile {
+      padding: 0;
+    }
+    padding: 1rem 1rem 0 0;
+    border-right: 1px solid $accent;
+  }
+
+  nb-card-body.info {
+    @include media-mobile {
+      padding: 0.5rem;
+    }
+  }
+}
+
+.selected_booking {
+  border: 1px solid $accent;
+}

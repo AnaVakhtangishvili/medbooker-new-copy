@@ -1,0 +1,19 @@
+<nb-layout>
+  <nb-layout-column>
+
+    <nb-card class="card-In-DatePicker">
+      <nb-card-body>
+        <nb-user
+          class="user-In-DatePicker"
+          size="large"
+          name="{{ chosenDoctor?.firstName }} {{ chosenDoctor?.lastName }}"
+          title="{{ chosenDoctor?.practiceName }}"
+          color="#FEFEFE"
+        >
+        </nb-user>
+      </nb-card-body>
+    </nb-card>
+
+    <app-calendar (onSubmit)="bookingHandler($event)"></app-calendar>
+  </nb-layout-column>
+</nb-layout>

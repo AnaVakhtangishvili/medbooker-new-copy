@@ -1,0 +1,68 @@
+<nb-layout>
+  <nb-layout-column class="forms">
+    <nb-form-field *ngIf="loginForm">
+      <h3>wellcome back</h3>
+      <form
+        class="register-form"
+        [formGroup]="loginForm"
+        (ngSubmit)="onLogin()"
+      >
+        <div class="input-wrapper">
+          <input
+            class="input"
+            type="text"
+            nbInput
+            fullWidth
+            shape="semi-round"
+            placeholder="email"
+            fieldSize="giant"
+            formControlName="email"
+            appFormErrorMessages
+          />
+        </div>
+        <div class="input-wrapper">
+          <div class="password">
+            <input
+              class="input input-password"
+              [type]="getInputType()"
+              nbInput
+              fullWidth
+              shape="semi-round"
+              placeholder="password"
+              fieldSize="giant"
+              formControlName="password"
+              appFormErrorMessages
+            />
+            <nb-icon
+              class="password-icon"
+              (click)="toggleShowPassword()"
+              [icon]="showPassword ? 'eye-outline' : 'eye-off-2-outline'"
+              pack="eva"
+              [attr.aria-label]="
+                showPassword ? 'hide password' : 'show password'
+              "
+            >
+            </nb-icon>
+          </div>
+        </div>
+        <span
+          class="errorMessage passwordsMismatch"
+          *ngIf="firebaseError.length"
+          >{{ firebaseError }}</span
+        >
+        <button
+          nbButton
+          class="btn btn-register"
+          [disabled]="!loginForm.valid"
+          [ngClass]="{ disabled: !loginForm.valid }"
+        >
+          <span>log in</span>
+        </button>
+      </form>
+    </nb-form-field>
+    <div class="suggestioin">
+      <span class="question">Don't have an account yet?</span>
+      <a routerLink="/register" class="form-link">Register</a>
+    </div>
+  </nb-layout-column>
+</nb-layout>

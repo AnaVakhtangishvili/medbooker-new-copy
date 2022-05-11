@@ -1,0 +1,25 @@
+@import "/src/styles/styles.scss";
+
+nb-layout-column {
+  @include flex(flex-start, center, column);
+  @include media-mobile {
+    padding: 3rem 1rem 2rem !important;
+  }
+  padding: 3rem 2rem 2rem !important;
+}
+
+nb-layout-column.first-column {
+  background-color: $white;
+}
+
+nb-form-field {
+  width: 100%;
+}
+
+.datepicker-container {
+  width: 100%;
+
+  .card-In-DatePicker {
+    width: 100%;
+  }
+}

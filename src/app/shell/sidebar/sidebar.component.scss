@@ -1,0 +1,61 @@
+@import '/src/styles/abstracts/mixins';
+@import '/src/styles/abstracts/variables';
+@import '/src/styles/components/buttons';
+
+.sidebar {
+  @include flex (center, center, column);
+
+  &__menu-expand-icon {
+    color: $secondary;
+    font-size: 1.5rem;
+    padding: 10px 50%;
+
+    &:hover {
+      color: $accent;
+      transition: 0.3s;
+    }
+    &:focus {
+      color: $accent;
+    }
+  }
+
+  &__list {
+    @include flex (center, flex-start, column);
+    margin-top: 1rem;
+    width: 100%;
+
+    &--item {
+      @include flex (flex-start, center);
+      width: 100%;
+      cursor: pointer;
+      margin-bottom: 2rem;
+
+      &-link{
+        text-decoration: none;
+        color: $inactive;
+        width: 100%;
+        padding: 1rem 0;
+        font-size: 0.85rem;
+
+        &:focus,  &:focus .sidebar__list--item-icon{
+          color: $secondary;
+        }
+      }
+
+      &:hover &-link, &:hover &-icon {
+        color: $secondary;
+        transition: 0.3s;
+      }
+
+      &-icon {
+        font-size: 1.2rem;
+        color: $inactive;
+        margin-right: 1.2rem;
+      }
+    }
+  }
+}
+ 
+.active, .active .sidebar__list--item-icon{
+  color: $secondary;
+}

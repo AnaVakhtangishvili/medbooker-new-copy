@@ -1,0 +1,60 @@
+<div class="patient-dashboard" *ngIf="userRole == role.patient">
+  <nb-card routerLink="../search" class="router-card">
+    <nb-card-body>
+      <h3>Need to see a doctor?</h3>
+      <p class="firstCardText">
+        Search for a healthcare professional close to you, using the find a
+        provider tool
+      </p>
+    </nb-card-body>
+  </nb-card>
+
+  <nb-card routerLink="../upcoming-consultations"  class="router-card">
+    <nb-card-body>
+      <h3>upcoming consultations</h3>
+    </nb-card-body>
+  </nb-card>
+
+  <nb-card routerLink="../health-records"  class="router-card">
+    <nb-card-body>
+      <h3>health records</h3>
+    </nb-card-body>
+  </nb-card>
+</div>
+
+
+<div class="card-row" *ngIf="userRole == role.doctor">
+  <div class="card-col">
+    <div class="consultations">
+      <h3>consultation requests</h3>
+
+      <ng-container *ngIf="bookings$ | async as bookings; else spinner">
+        <ng-container *ngIf="bookings.length; else messageForEmptyBlock">
+          <app-booking-card
+            *ngFor="let booking of bookings"
+            [booking]="booking"
+            (onAcceptBooking)="acceptBookingHandler($event)"
+            (onRejectBooking)="rejectBookingHandler($event)"
+          ></app-booking-card>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="card-col">
+    <nb-card routerLink="../upcoming-consultations" class="router-card  upcoming-consultations-card">
+      <nb-card-body>
+        <h3>upcoming consultations</h3>
+      </nb-card-body>
+    </nb-card>
+
+    <nb-card routerLink="../patients" class="router-card">
+      <nb-card-body>
+        <h3>patients</h3>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<ng-template #messageForEmptyBlock><p class="messageForEmpty">You have no consultation requests</p></ng-template>
+<ng-template #spinner><app-ngx-spinner></app-ngx-spinner></ng-template>

@@ -1,0 +1,12 @@
+<nb-card *ngIf="doctor" class="doctors-card">
+  <nb-card-body>
+    <nb-user size="large"
+             name='{{ doctor.firstName }} {{ doctor.lastName }}'
+             title="{{doctor.practiceName}}"
+             color="#FEFEFE">
+    </nb-user>
+    <button nbButton class="btn btn-bookConsultation btn-book " (click)="navigateToBooking(doctor.entityNo)">
+      <span>book consultation</span>
+    </button>
+  </nb-card-body>
+</nb-card>

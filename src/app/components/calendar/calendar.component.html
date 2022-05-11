@@ -1,0 +1,30 @@
+<form
+*ngIf="datePickerForm"
+class="datePicker-form"
+[formGroup]="datePickerForm"
+(ngSubmit)="submit()"
+>
+<input
+  formControlName="date"
+  nbInput
+  placeholder="Pick Date"
+  [nbDatepicker]="dateTimePicker"
+  fullWidth
+  shape="semi-round"
+/>
+<nb-date-timepicker
+  #dateTimePicker
+  singleColumn
+  [step]="30"
+  [min]="today"
+  [filter]="filter"
+></nb-date-timepicker>
+<button
+  nbButton
+  class="btn btn-book"
+  [disabled]="!datePickerForm.valid"
+  [ngClass]="{ disabled: !datePickerForm.valid }"
+>
+  <span>book</span>
+</button>
+</form>

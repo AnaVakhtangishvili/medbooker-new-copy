@@ -1,0 +1,75 @@
+<nb-layout>
+  <nb-layout-column class="first-column">
+    <h3>patients list</h3>
+    <nb-form-field *ngIf="patientsForm">
+      <form class="search-docorts" [formGroup]="patientsForm">
+        <div class="password">
+          <input
+            class="input input-password"
+            nbInput
+            fullWidth
+            shape="semi-round"
+            placeholder="patient's name"
+            fieldSize="medium"
+            formControlName="patientsName"
+            appFormErrorMessages
+          />
+          <nb-icon
+            class="password-icon"
+            icon="search-outline"
+            pack="eva"
+          ></nb-icon>
+        </div>
+        <div class="password">
+          <input
+            class="input input-password"
+            nbInput
+            fullWidth
+            shape="semi-round"
+            placeholder="patient's lastname"
+            fieldSize="medium"
+            formControlName="patientsLastname"
+            appFormErrorMessages
+          />
+          <nb-icon
+            class="password-icon"
+            icon="search-outline"
+            pack="eva"
+          ></nb-icon>
+        </div>
+      </form>
+    </nb-form-field>
+
+    <ng-container *ngIf="patients$ | async as patients; else messageForEmptyBlock">
+      <app-patient-card
+        *ngFor="let patient of patients"
+        [patient]="patient"
+        (onAppointmentButtonClick)="getChosenPatient($event)"
+      ></app-patient-card>
+    </ng-container>
+
+  </nb-layout-column>
+
+  <nb-layout-column class="second-column">
+    <h3>create appointment</h3>
+    
+    <div class="datepicker-container" *ngIf="showCalendar; else messageForEmptyBlock">
+      <nb-card class="card-In-DatePicker">
+        <nb-card-body>
+          <nb-user
+            class="user-In-DatePicker"
+            size="large"
+            name="{{ chosenPatient?.firstName }} {{ chosenPatient?.lastName }}"
+            color="#FEFEFE"
+          >
+          </nb-user>
+        </nb-card-body>
+      </nb-card>
+      
+      <app-calendar (onSubmit)="appointmentCreationHandler($event)"></app-calendar>
+    </div>
+
+  </nb-layout-column>
+</nb-layout>
+
+<ng-template #messageForEmptyBlock><p class="messageForEmpty">Choose patient to create appointment</p></ng-template>
